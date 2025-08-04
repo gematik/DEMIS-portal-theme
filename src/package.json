@@ -1,0 +1,30 @@
+{
+  "name": "@gematik/demis-portal-theme-library",
+  "version": "1.0.1",
+  "description": "The library that contains the implementation of the DEMIS theme for microfrontends.",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "files": [
+    "demis-theme.css",
+    "demis-theme.css.map",
+    "index.js",
+    "index.d.ts"
+  ],
+  "license": "EUPL-1.2",
+  "keywords": [
+    "angular",
+    "material",
+    "theme",
+    "demis",
+    "gematik"
+  ],
+  "author": "Gematik GmbH",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gematik/demis-portal-theme-library.git"
+  },
+  "peerDependencies": {
+    "@angular/material": "19.2.19",
+    "@angular/cdk": "19.2.19"
+  }
+}

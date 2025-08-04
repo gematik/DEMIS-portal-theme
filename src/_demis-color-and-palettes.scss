@@ -1,0 +1,103 @@
+// #region DEMIS-Colors-and-Palettes
+@use 'colors';
+
+// deprecated, use _colors.scss instead
+:root {
+  --color-demis-gray: rgb(145, 157, 157);
+  --color-demis-white: rgb(255, 255, 255);
+  --color-demis-black: rgb(0, 3, 3);
+  --color-demis-focused-background: rgba(148, 151, 227, 0.05);
+  --color-demis-stroke: rgba(0, 3, 3, 0.12);
+  // TODO: integrate in consistent styling/theming
+  --gem-demis-primary-color: rgb(0, 14, 82);
+  --gem-demis-border-color: rgb(89, 89, 89);
+  --gem-demis-text-color: rgb(89, 89, 89);
+  --gem-demis-line-height-offset: 0.1rem;
+  --gem-demis-icon-to-text-padding: 8px;
+  --gem-demis-error-color: var(--mat-form-field-error-text-color);
+  --gem-demis-success-color: green;
+}
+
+
+$color-demis-primary: var(--gem-demis-primary-color);
+
+// DEMIS-Grau: Pantone 443 C https://www.pantone.com/color-finder/443-C
+$color-demis-gray: var(--color-demis-gray);
+
+// more DEMIS colors (to be used instead of system colors)
+$color-demis-white: var(--color-demis-white);
+$color-demis-black: var(--color-demis-black);
+$color-demis-focused-background: var(--color-demis-focused-background);
+$color-demis-stroke: var(--color-demis-stroke);
+
+// For more information: https://material.angular.io/guide/theming
+// and https://blog.thoughtram.io/angular/2017/05/23/custom-themes-with-angular-material.html
+// Palette Generator: https://material.io/design/color/#tools-for-picking-colors
+
+$mat-demis-gray-palette: (
+  50: #eaeded,
+  100: #d1d4d4,
+  200: #b3b8b8,
+  300: $color-demis-gray,
+  400: #788989,
+  500: #5f7575,
+  600: #546666,
+  700: #455253,
+  800: #374040,
+  900: #272b2b,
+  A100: #d4d4d4,
+  A200: #b3b8b8,
+  A400: #788989,
+  A700: #455253,
+  contrast: (
+    50: rgba($color-demis-black, .87),
+    100: rgba($color-demis-black, .87),
+    200: rgba($color-demis-black, .87),
+    300: rgba($color-demis-black, .87),
+    400: rgba($color-demis-black, .87),
+    500: rgba($color-demis-black, .87),
+    600: $color-demis-white,
+    700: $color-demis-white,
+    800: $color-demis-white,
+    900: $color-demis-white,
+    A100: rgba($color-demis-black, .87),
+    A200: rgba($color-demis-black, .87),
+    A400: rgba($color-demis-black, .87),
+    A700: $color-demis-white
+  )
+);
+
+// #endregion DEMIS-Colors-and-Palettes
+
+$mat-demis-primary-palette: (
+  50: #D1D9FF,
+  100: #BDC8FF,
+  200: #ADBBFF,
+  300: #7A91FF,
+  400: #4D6AFF,
+  500: #022BF7,
+  600: #0025DB,
+  700: #001994,
+  800: #000E52,
+  900: #000624,
+  A100: #b9dcf8,
+  A200: #8cc6f4,
+  A400: #3a9fed,
+  A700: #0470ca,
+  contrast: (
+    50: rgba($color-demis-black, .87),
+    100: rgba($color-demis-black, .87),
+    200: rgba($color-demis-black, .87),
+    300: rgba($color-demis-black, .87),
+    400: rgba($color-demis-black, .87),
+    500: rgba($color-demis-black, .87),
+    600: $color-demis-white,
+    700: $color-demis-white,
+    800: $color-demis-white,
+    900: $color-demis-white,
+    A100: rgba($color-demis-black, .87),
+    A200: rgba($color-demis-black, .87),
+    A400: rgba($color-demis-black, .87),
+    A700: $color-demis-white
+  ),
+);

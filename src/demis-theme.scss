@@ -1,0 +1,240 @@
+@use '@angular/material' as mat;
+@use './demis-color-and-palettes' as palettes;
+@use './colors' as colors;
+
+// Include Angular Material core styles FIRST
+@include mat.core();
+
+// Create palettes and typography for demis-theme
+$demis-notification-portal-light-primary: mat.m2-define-palette(palettes.$mat-demis-primary-palette, 800, 400, 900);
+$demis-notification-portal-light-accent: mat.m2-define-palette(palettes.$mat-demis-primary-palette, 800, 400, 900);
+$demis-notification-portal-light-warn: mat.m2-define-palette(palettes.$mat-demis-primary-palette, 800, 400, 900);
+
+// Define typography
+$demis-typography: mat.m2-define-typography-config(
+  //h1 - Title1
+  $headline-5: mat.m2-define-typography-level(24px, 32px, 400, 'Verdana, sans-serif', 0),
+    //h2 - Title2
+  $headline-6: mat.m2-define-typography-level(20px, 25px, 400, 'Verdana, sans-serif', 0),
+    //h3 - Title3 (Headline)
+  $subtitle-1: mat.m2-define-typography-level(17px, 22px, 400, 'Verdana, sans-serif', 0),
+    //h4 - Callout
+  $subtitle-2: mat.m2-define-typography-level(16px, 21px, 400, 'Verdana, sans-serif', 0),
+    //body - Body
+  $body-1: mat.m2-define-typography-level(14px, 19px, 400, 'Verdana, sans-serif', 0),
+    //footnote
+  $body-2: mat.m2-define-typography-level(13px, 18px, 400, 'Verdana, sans-serif', 0),
+    //caption - Caption1
+  $caption: mat.m2-define-typography-level(12px, 16px, 400, 'Verdana, sans-serif', 0),
+    //button
+  $button: mat.m2-define-typography-level(14px, 19px, 400, 'Verdana, sans-serif', 0),
+);
+
+// Define the main theme  
+$demis-theme: mat.m2-define-light-theme((
+  color: (
+    primary: $demis-notification-portal-light-primary,
+    accent: $demis-notification-portal-light-accent,
+  ),
+  typography: $demis-typography,
+  density: 0,
+));
+
+// Apply the theme styles
+@include mat.core-theme($demis-theme);
+@include mat.all-component-themes($demis-theme);
+@include mat.typography-hierarchy($demis-typography);
+
+// ///////////////////////////////////////////////////////////////////////////////////////
+// CSS Stylings of the theme
+// ///////////////////////////////////////////////////////////////////////////////////////
+
+$button-border-radius: 24px;
+
+
+:root {
+  --two-column-length: 5;
+}
+
+//#region GlobalStyles
+html,
+body,
+app-root,
+.app-frame {
+  font-family: Verdana, sans-serif;
+  box-sizing: border-box;
+  height: 100%;
+  margin: 0;
+  letter-spacing: normal;
+  background-color: unset !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: colors.$color-primary;
+}
+
+//TODO: moved here from pathogen; needed for all h2 spacing between e.g. Einrichtung and above text paragraph
+// needs to be fixed because it needs overrides at other places e.g. homepage/welcome-tile
+h2 {
+  padding-top: 15px;
+}
+
+//#endregion GlobalStyles
+
+//#region MaterialStyles
+.mat-sidenav, .mat-drawer {
+  border-right-color: palettes.$color-demis-stroke !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+//background-color needs extra override for IGS content
+.mat-app-background {
+  background-color: unset !important;
+}
+
+.mat-drawer-container {
+  background-color: unset !important;
+}
+
+app-side-navigation {
+  min-height: 100%;
+
+  app-paste-box {
+    margin: 3rem;
+  }
+}
+
+.justify {
+  justify-content: center;
+}
+
+// information icon
+.material-icons.md-48 {
+  margin-top: 5px;
+  margin-right: 5px;
+  color: colors.$color-primary;
+}
+
+// navbar styling - must stay here atm to work for other microfrontends
+.app-navbar-demis {
+  .mat-mdc-tab-link > span.mdc-tab__content > span.mdc-tab__text-label {
+    color: var(--color-demis-black);
+  }
+}
+
+//<div class="app-navbar-demis mat-mdc-tab-link"><span "mdc-tab__content"><span class="mdc-tab__text-label">
+
+//moved here from bed-occupancy
+.mat-mdc-table {
+  background-color: var(--color-demis-white) !important;
+}
+
+// Custom styles for the mdc-checkbox (unsets background-color, deletes ruler, padding and hover-overlay)
+.mat-mdc-form-field-type-checkbox {
+  .mdc-text-field--filled {
+    background-color: unset !important;
+  }
+
+  .mat-mdc-text-field-wrapper {
+    padding: 0;
+
+    .mat-mdc-form-field-focus-overlay {
+      display: none;
+    }
+
+    .mdc-line-ripple {
+      display: none;
+    }
+
+    .mat-mdc-form-field-infix {
+      padding: 0 !important;
+      min-height: unset;
+    }
+  }
+}
+
+//TODO: analyze why this component needs specific override
+// Burger-Menu items font style override
+.mat-mdc-menu-content {
+  .mat-mdc-menu-item {
+    font-family: Verdana, sans-serif;
+  }
+}
+
+app-paste-box {
+  div {
+    border-radius: 16px !important;
+  }
+}
+
+// Button Styles
+.btn {
+  padding-right: 14px !important;
+  padding-left: 14px !important;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 36px;
+
+  &.style {
+    border-radius: 24px !important;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+
+  &.paste {
+    padding: 8px 16px !important;
+    align-items: center;
+    cursor: pointer;
+    border: 1px colors.$color-primary solid;
+  }
+
+  &.back[disabled] {
+    opacity: 0 !important;
+  }
+
+  &.forward {
+    margin-left: 10px;
+    border: 1px colors.$color-primary solid;
+  }
+
+  &.color:hover {
+    background-color: #f1f4f4;
+  }
+
+  &.color {
+    background-color: transparent;
+    color: colors.$color-primary !important;
+  }
+
+  &.dark--color {
+    background-color: colors.$color-primary;
+    color: var(--color-white) !important;
+  }
+
+  &.dark--color:disabled {
+    background: var(--color-neutral-light);
+    color: var(--color-neutral-dark) !important;
+  }
+}
+
+.btn__icon {
+  &.margin--left {
+    margin-left: 12px;
+  }
+
+  &.margin--right {
+    margin-right: 12px;
+  }
+
+  &.rotate {
+    transform: rotate(-38deg);
+    margin-bottom: 5px;
+  }
+}
+
+.mat-mdc-unelevated-button,
+.mat-mdc-outlined-button {
+  border-radius: $button-border-radius !important;
+}
