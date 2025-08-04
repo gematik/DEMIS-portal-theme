@@ -1,0 +1,81 @@
+:root {
+  /* Primary */
+  --color-primary: #003A66;
+  --color-demis-blue: #0065B0;
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+
+  /* Neutral */
+  --color-neutral-lighter: #F9F9F9;
+  --color-neutral-light: #D9D9D9;
+  --color-neutral-medium: #989898;
+  --color-neutral-dark: #595959;
+
+  /* Secondary */
+  --color-secondary-light100: #C3CEE1;
+  --color-secondary-light80: #D7DFEB;
+  --color-secondary-light60: #EBEFF5;
+  --color-secondary-light40: #F5F7FA;
+
+  --color-secondary-dark100: #225494;
+  --color-secondary-dark80: #42659F;
+  --color-secondary-dark60: #8DA5C4;
+  --color-secondary-dark40: #ADBFD9;
+  --color-secondary-dark20: #EAF6FF;
+
+
+  /* Success */
+  --color-success-dark: #00766E;
+  --color-success-medium: #009A7C;
+  --color-success-light: #ADDBCF;
+
+  /* Warning */
+  --color-warning-dark: #EE8360;
+  --color-warning-medium: #EDA585;
+  --color-warning-light: #F5E9E4;
+
+  /* Error */
+  --color-error-dark: #B3261E;
+  --color-error-medium: #ED6C71;
+  --color-error-light: #FAE3E5;
+
+  --mdc-outlined-text-field-label-text-color: var(--color-black);
+  --mdc-outlined-text-field-hover-label-text-color: var(--color-black);
+  --mdc-outlined-text-field-focus-label-text-color: var(--color-black);
+  --mdc-outlined-text-field-outline-color: var(--color-primary);
+  --mdc-outlined-text-field-hover-outline-color: var(--color-primary);
+  --mdc-outlined-text-field-focus-outline-color: var(--color-primary);
+}
+
+/* SCSS Variables using CSS Variables */
+$color-primary: var(--color-primary);
+$color-demis-blue: var(--color-demis-blue);
+$color-white: var(--color-white);
+$color-black: var(--color-black);
+
+$color-neutral-lighter: var(--color-neutral-lighter);
+$color-neutral-light: var(--color-neutral-light);
+$color-neutral-medium: var(--color-neutral-medium);
+$color-neutral-dark: var(--color-neutral-dark);
+
+$color-secondary-light100: var(--color-secondary-light100);
+$color-secondary-light80: var(--color-secondary-light80);
+$color-secondary-light60: var(--color-secondary-light60);
+$color-secondary-light40: var(--color-secondary-light40);
+
+$color-secondary-dark100: var(--color-secondary-dark100);
+$color-secondary-dark80: var(--color-secondary-dark80);
+$color-secondary-dark60: var(--color-secondary-dark60);
+$color-secondary-dark40: var(--color-secondary-dark40);
+
+$color-success-dark: var(--color-success-dark);
+$color-success-medium: var(--color-success-medium);
+$color-success-light: var(--color-success-light);
+
+$color-warning-dark: var(--color-warning-dark);
+$color-warning-medium: var(--color-warning-medium);
+$color-warning-light: var(--color-warning-light);
+
+$color-error-dark: var(--color-error-dark);
+$color-error-medium: var(--color-error-medium);
+$color-error-light: var(--color-error-light);

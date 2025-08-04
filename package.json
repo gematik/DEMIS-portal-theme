@@ -1,0 +1,30 @@
+{
+  "name": "portal-theme",
+  "version": "1.0.1",
+  "description": "Build project for the DEMIS portal theme library",
+  "main": "dist/gematik/demis-portal-theme-library/index.js",
+  "types": "dist/gematik/demis-portal-theme-library/index.d.ts",
+  "files": [
+    "dist/gematik/demis-portal-theme-library/"
+  ],
+  "scripts": {
+    "clean": "rimraf dist",
+    "prebuild": "node .local-scripts/sync-dependencies.js",
+    "build": "npm run build:css && npm run build:module",
+    "build:css": "sass --load-path=node_modules src/demis-theme.scss dist/gematik/demis-portal-theme-library/demis-theme.css",
+    "build:module": "cp src/index.js dist/gematik/demis-portal-theme-library/ && cp src/index.d.ts dist/gematik/demis-portal-theme-library/ && cp src/package.json dist/gematik/demis-portal-theme-library/",
+    "clean-build": "npm run clean && npm run build",
+    "pack": "npm run build && cd dist/gematik/demis-portal-theme-library && npm pack && mv *.tgz ../../",
+    "build:dev": "npm run clean && npm run build && npm pack dist/gematik/demis-portal-theme-library --pack-destination dist",
+    "deploy-local-dev-package": "node .local-scripts/deploy-local-dev-package.js",
+    "restore-to-registry-package": "node .local-scripts/restore-to-registry-package.js"
+  },
+  "private": true,
+  "license": "EUPL-1.2",
+  "devDependencies": {
+    "@angular/cdk": "19.2.19",
+    "@angular/material": "19.2.19",
+    "rimraf": "6.0.1",
+    "sass": "1.89.2"
+  }
+}
