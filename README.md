@@ -40,33 +40,11 @@
 
 This project contains the DEMIS Portal Theme Library, providing consistent styling and theming for DEMIS microfrontends based on Angular Material.
 
-### Quality Gate
-
-### Quality Gate
-
-[![Quality Gate Status](https://sonar.prod.ccs.gematik.solutions/api/project_badges/measure?project=de.gematik.demis%3Aportal-theme&metric=alert_status&token=f6b0d2644cdc236a78e65a44ef61eb7f161ba1ab)](https://sonar.prod.ccs.gematik.solutions/dashboard?id=de.gematik.demis%3Aportal-theme)
-[![Vulnerabilities](https://sonar.prod.ccs.gematik.solutions/api/project_badges/measure?project=de.gematik.demis%3Aportal-theme&metric=vulnerabilities&token=f6b0d2644cdc236a78e65a44ef61eb7f161ba1ab)](https://sonar.prod.ccs.gematik.solutions/dashboard?id=de.gematik.demis%3Aportal-theme)
-[![Bugs](https://sonar.prod.ccs.gematik.solutions/api/project_badges/measure?project=de.gematik.demis%3Aportal-theme&metric=bugs&token=f6b0d2644cdc236a78e65a44ef61eb7f161ba1ab)](https://sonar.prod.ccs.gematik.solutions/dashboard?id=de.gematik.demis%3Aportal-theme)
-[![Code Smells](https://sonar.prod.ccs.gematik.solutions/api/project_badges/measure?project=de.gematik.demis%3Aportal-theme&metric=code_smells&token=f6b0d2644cdc236a78e65a44ef61eb7f161ba1ab)](https://sonar.prod.ccs.gematik.solutions/dashboard?id=de.gematik.demis%3Aportal-theme)
-[![Lines of Code](https://sonar.prod.ccs.gematik.solutions/api/project_badges/measure?project=de.gematik.demis%3Aportal-theme&metric=ncloc&token=f6b0d2644cdc236a78e65a44ef61eb7f161ba1ab)](https://sonar.prod.ccs.gematik.solutions/dashboard?id=de.gematik.demis%3Aportal-theme)
-[![Coverage](https://sonar.prod.ccs.gematik.solutions/api/project_badges/measure?project=de.gematik.demis%3Aportal-theme&metric=coverage&token=f6b0d2644cdc236a78e65a44ef61eb7f161ba1ab)](https://sonar.prod.ccs.gematik.solutions/dashboard?id=de.gematik.demis%3Aportal-theme)
-
 ### Release Notes
 
 See [ReleaseNotes](ReleaseNotes.md) for all information regarding the (newest) releases.
 
 ## Getting Started
-
-### NPM Configuration
-
-The Project requires access to the Nexus Private NPM registry from gematik, therefore the `npm` CLI tool should be configured accordingly:
-
-```sh
-# Login to private registry with username/password
-npm login --registry=https://nexus.prod.ccs.gematik.solutions/repository/allNpmRepos/
-# Set npm standard registry
-npm config set registry https://nexus.prod.ccs.gematik.solutions/repository/allNpmRepos/
-```
 
 ### How to build
 
