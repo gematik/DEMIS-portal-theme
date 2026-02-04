@@ -2,6 +2,11 @@
  
 # Release notes
 
+## Release 1.0.3
+
+- Fixed vulnerabilities in dependencies
+- Upgraded dependencies to latest versions
+
 ## Release 1.0.2
 
 - Fixed release pipeline
