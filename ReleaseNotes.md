@@ -2,6 +2,10 @@
  
 # Release notes
 
+## Release 1.0.4
+
+- Fixed missing styles for form fields
+
 ## Release 1.0.3
 
 - Fixed vulnerabilities in dependencies
