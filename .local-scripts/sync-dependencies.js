@@ -17,55 +17,68 @@
 
 const fs = require('fs');
 const path = require('path');
-const { getLibraryProjectName } = require('./package-utils');
-
-// Portal Theme specific configuration
-const rootPkgPath = path.resolve(__dirname, '../package.json');
+const rootPkg = require('../package.json');
 const libPkgPath = path.resolve(__dirname, '../src/package.json');
-
-console.log('Syncing dependencies for Portal Theme...');
-
-// Read package.json files
-if (!fs.existsSync(rootPkgPath)) {
-  console.error('❌ Root package.json not found');
-  process.exit(1);
-}
-
-if (!fs.existsSync(libPkgPath)) {
-  console.error('❌ Library package.json not found in src/');
-  process.exit(1);
-}
-
-const rootPkg = require(rootPkgPath);
 const libPkg = require(libPkgPath);
 
-// Dependencies to sync from root to library peerDependencies
-const peerDepsToSync = ['@angular/material', '@angular/cdk'];
+// Automatically get all peerDependencies from the library package.json
+const peerDepsToSync = Object.keys(libPkg.peerDependencies || {});
+// Automatically get all dependencies from the library package.json
+const depsToSync = Object.keys(libPkg.dependencies || {});
+
+console.log('Syncing dependencies...');
 
 console.log('\nThe following peer dependencies will be synced:');
 peerDepsToSync.forEach(dep => {
   console.log(`- ${dep}`);
 });
 
-libPkg.peerDependencies = libPkg.peerDependencies || {};
-
-// Sync peerDependencies
-peerDepsToSync.forEach(dep => {
-  if (rootPkg.devDependencies && rootPkg.devDependencies[dep]) {
-    const version = rootPkg.devDependencies[dep];
-    libPkg.peerDependencies[dep] = version;
-    console.log(`✅ Synced ${dep}: ${version}`);
-  } else {
-    console.warn(`⚠️  ${dep} not found in root devDependencies`);
-  }
+console.log('\nThe following dependencies will be synced:');
+depsToSync.forEach(dep => {
+  console.log(`- ${dep}`);
 });
 
-// Write the updated library package.json
-fs.writeFileSync(libPkgPath, JSON.stringify(libPkg, null, 2));
-console.log('\n✅ Dependencies are in sync now!');
+/**
+ * Syncs versions from the root package.json to the target object.
+ * First looks in dependencies, then in devDependencies.
+ * @param {string[]} depsToSync - List of dependency names to sync
+ * @param {Object} targetObj - Target object to write versions to
+ * @returns {{ synced: number, skipped: string[] }} - Sync result with count and skipped deps
+ */
+function syncVersions(depsToSync, targetObj) {
+  let synced = 0;
+  const skipped = [];
 
-// Show summary
-console.log('\nSummary:');
-console.log(`   Root package: ${rootPkg.name}`);
-console.log(`   Library package: ${libPkg.name}`);
-console.log(`   Synced peer dependencies: ${Object.keys(libPkg.peerDependencies).length}`);
+  depsToSync.forEach(dep => {
+    if (rootPkg.dependencies && rootPkg.dependencies[dep]) {
+      targetObj[dep] = rootPkg.dependencies[dep];
+      synced++;
+    } else if (rootPkg.devDependencies && rootPkg.devDependencies[dep]) {
+      targetObj[dep] = rootPkg.devDependencies[dep];
+      synced++;
+    } else {
+      skipped.push(dep);
+    }
+  });
+
+  return { synced, skipped };
+}
+
+const peerResult = syncVersions(peerDepsToSync, libPkg.peerDependencies);
+const depsResult = syncVersions(depsToSync, libPkg.dependencies);
+
+fs.writeFileSync(libPkgPath, JSON.stringify(libPkg, null, 2) + '\n');
+
+console.log(`\n✓ ${peerResult.synced} peer dependencies synced.`);
+if (peerResult.skipped.length > 0) {
+  console.log(`⚠ ${peerResult.skipped.length} peer dependencies not found in workspace package.json:`);
+  peerResult.skipped.forEach(dep => console.log(`  - ${dep}`));
+}
+
+console.log(`✓ ${depsResult.synced} dependencies synced.`);
+if (depsResult.skipped.length > 0) {
+  console.log(`⚠ ${depsResult.skipped.length} dependencies not found in workspace package.json:`);
+  depsResult.skipped.forEach(dep => console.log(`  - ${dep}`));
+}
+
+console.log('\nDependencies are in sync now!');

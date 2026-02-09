@@ -54,6 +54,13 @@ $button-border-radius: 24px;
 
 :root {
   --two-column-length: 5;
+
+  @include mat.form-field-overrides((
+    outlined-outline-color: colors.$color-primary,
+    outlined-focus-outline-color: colors.$color-primary,
+    outlined-label-text-color: colors.$color-black,
+    outlined-focus-label-text-color: colors.$color-black,
+  ));
 }
 
 //#region GlobalStyles

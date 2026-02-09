@@ -1,6 +1,6 @@
 {
   "name": "portal-theme",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Build project for the DEMIS portal theme library",
   "main": "dist/gematik/demis-portal-theme-library/index.js",
   "types": "dist/gematik/demis-portal-theme-library/index.d.ts",
