@@ -61,6 +61,12 @@ $button-border-radius: 24px;
     outlined-label-text-color: colors.$color-black,
     outlined-focus-label-text-color: colors.$color-black,
   ));
+
+  @include mat.datepicker-overrides((
+    calendar-container-background-color: var(--color-secondary-dark20),
+    toggle-active-state-icon-color: var(--color-primary),
+    toggle-icon-color: var(--color-primary),
+  ));
 }
 
 //#region GlobalStyles

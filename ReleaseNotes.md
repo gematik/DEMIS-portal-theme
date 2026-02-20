@@ -2,6 +2,10 @@
  
 # Release notes
 
+## Release 1.1.0
+
+- Added theming for material datepickers
+
 ## Release 1.0.4
 
 - Fixed missing styles for form fields
