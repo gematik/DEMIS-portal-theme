@@ -2,6 +2,11 @@
  
 # Release notes
 
+## Release 1.1.1
+
+- Added override for chrome autofill styles
+- Updated angular material
+
 ## Release 1.1.0
 
 - Added theming for material datepickers
