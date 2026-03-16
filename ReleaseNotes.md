@@ -2,6 +2,10 @@
  
 # Release notes
 
+## Release 1.1.2
+
+- Dependency update because of GHSA-g93w-mfhg-p222
+
 ## Release 1.1.1
 
 - Added override for chrome autofill styles
