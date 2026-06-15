@@ -86,10 +86,16 @@ h1, h2, h3, h4, h5, h6 {
   color: colors.$color-primary;
 }
 
-//TODO: moved here from pathogen; needed for all h2 spacing between e.g. Einrichtung and above text paragraph
-// needs to be fixed because it needs overrides at other places e.g. homepage/welcome-tile
-h2 {
-  padding-top: 15px;
+// Applies consistent bottom spacing to all mat-form-field elements inside formly wrappers.
+// Multiple selectors are needed because some fields are matched via the element selector
+// (mat-form-field) in deeply nested formly row/QUESTIONS structures, while others (e.g.
+// standalone or differently nested fields) are only matched via the MDC/legacy class selectors
+// (.mat-mdc-form-field / .mat-form-field) on the formly wrapper level.
+formly-group.row formly-field formly-wrapper-mat-form-field mat-form-field,
+formly-group.QUESTIONS formly-field formly-group formly-field formly-wrapper-mat-form-field mat-form-field,
+formly-wrapper-mat-form-field .mat-mdc-form-field,
+formly-wrapper-mat-form-field .mat-form-field {
+  margin-bottom: 14px;
 }
 
 //#endregion GlobalStyles

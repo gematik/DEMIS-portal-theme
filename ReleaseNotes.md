@@ -2,6 +2,11 @@
  
 # Release notes
 
+## Release 1.2.0
+
+- Improved release pipeline
+- Fixed styling errors for different spacings and diversity problems
+
 ## Release 1.1.2
 
 - Dependency update because of GHSA-g93w-mfhg-p222
