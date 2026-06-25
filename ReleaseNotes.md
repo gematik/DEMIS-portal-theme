@@ -2,6 +2,10 @@
  
 # Release notes
 
+## Release 1.3.0
+
+- Increased text field label font size to improve readability
+
 ## Release 1.2.0
 
 - Improved release pipeline

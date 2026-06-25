@@ -60,6 +60,8 @@ $button-border-radius: 24px;
     outlined-focus-outline-color: colors.$color-primary,
     outlined-label-text-color: colors.$color-black,
     outlined-focus-label-text-color: colors.$color-black,
+    outlined-label-text-size: 16px,
+    outlined-label-text-populated-size: 16px,
   ));
 
   @include mat.datepicker-overrides((
