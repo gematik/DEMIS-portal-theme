@@ -14,23 +14,23 @@ $demis-notification-portal-light-warn: mat.m2-define-palette(palettes.$mat-demis
 $demis-typography: mat.m2-define-typography-config(
   //h1 - Title1
   $headline-5: mat.m2-define-typography-level(24px, 32px, 400, 'Verdana, sans-serif', 0),
-    //h2 - Title2
+  //h2 - Title2
   $headline-6: mat.m2-define-typography-level(20px, 25px, 400, 'Verdana, sans-serif', 0),
-    //h3 - Title3 (Headline)
+  //h3 - Title3 (Headline)
   $subtitle-1: mat.m2-define-typography-level(17px, 22px, 400, 'Verdana, sans-serif', 0),
-    //h4 - Callout
+  //h4 - Callout
   $subtitle-2: mat.m2-define-typography-level(16px, 21px, 400, 'Verdana, sans-serif', 0),
-    //body - Body
+  //body - Body
   $body-1: mat.m2-define-typography-level(14px, 19px, 400, 'Verdana, sans-serif', 0),
-    //footnote
+  //footnote
   $body-2: mat.m2-define-typography-level(13px, 18px, 400, 'Verdana, sans-serif', 0),
-    //caption - Caption1
+  //caption - Caption1
   $caption: mat.m2-define-typography-level(12px, 16px, 400, 'Verdana, sans-serif', 0),
-    //button
+  //button
   $button: mat.m2-define-typography-level(14px, 19px, 400, 'Verdana, sans-serif', 0),
 );
 
-// Define the main theme  
+// Define the main theme
 $demis-theme: mat.m2-define-light-theme((
   color: (
     primary: $demis-notification-portal-light-primary,
@@ -60,9 +60,27 @@ $button-border-radius: 24px;
     outlined-focus-outline-color: colors.$color-primary,
     outlined-label-text-color: colors.$color-black,
     outlined-focus-label-text-color: colors.$color-black,
+    error-text-color: colors.$color-error-dark,
+    outlined-error-outline-color: colors.$color-error-dark,
+    outlined-error-hover-outline-color: colors.$color-error-dark,
+    outlined-error-focus-outline-color: colors.$color-error-dark,
+    outlined-error-label-text-color: colors.$color-error-dark,
+    outlined-error-hover-label-text-color: colors.$color-error-dark,
+    outlined-error-focus-label-text-color: colors.$color-error-dark,
+    outlined-error-caret-color: colors.$color-error-dark,
+    outlined-disabled-input-text-color: var(--color-disabled-text),
+    outlined-disabled-label-text-color: var(--color-disabled-text),
     outlined-label-text-size: 16px,
     outlined-label-text-populated-size: 16px,
   ));
+
+  @include mat.select-overrides((
+    placeholder-text-color: var(--color-neutral-dark),
+    disabled-trigger-text-color: var(--color-disabled-text),
+  ));
+
+  // MDC Input placeholder – not covered by the form-field-overrides mixin
+  --mdc-outlined-text-field-input-text-placeholder-color: var(--color-neutral-dark);
 
   @include mat.datepicker-overrides((
     calendar-container-background-color: var(--color-secondary-dark20),

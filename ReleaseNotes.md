@@ -2,6 +2,10 @@
  
 # Release notes
 
+## Release 1.4.0
+
+- Increased contrast for accessibility standards in errors, disabled fields and placeholder texts
+
 ## Release 1.3.0
 
 - Increased text field label font size to improve readability
