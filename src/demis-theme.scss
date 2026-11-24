@@ -118,6 +118,21 @@ formly-wrapper-mat-form-field .mat-form-field {
   margin-bottom: 14px;
 }
 
+// Preserve the subscript spacing while allowing multi-line hints and errors to grow.
+formly-wrapper-mat-form-field .mat-mdc-form-field-subscript-wrapper {
+  min-height: 20px;
+  padding-top: 4px;
+}
+
+formly-wrapper-mat-form-field .mat-mdc-form-field-bottom-align::before {
+  content: unset;
+}
+
+formly-wrapper-mat-form-field .mat-mdc-form-field-hint-wrapper,
+formly-wrapper-mat-form-field .mat-mdc-form-field-error-wrapper {
+  position: static;
+}
+
 //#endregion GlobalStyles
 
 //#region MaterialStyles
